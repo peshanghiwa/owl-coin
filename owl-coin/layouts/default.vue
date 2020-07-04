@@ -5,7 +5,12 @@
       <h1>Transaction Successfull!</h1>
       <button @click="goBackHome" class="home-button">Home</button>
     </div>
-    <logo v-if="loading" fill="#ffcea2" height="130px" class="loading-screen"></logo>
+    <logo
+      v-if="loading"
+      fill="#ffcea2"
+      height="130px"
+      class="loading-screen"
+    ></logo>
     <nuxt />
   </div>
 </template>
@@ -72,6 +77,12 @@ export default {
 }
 .success-container h1 {
   margin: 20px 0;
+}
+
+@media screen and(max-width:600px) {
+  .success-container h1 {
+    font-size: 14px;
+  }
 }
 .home-button {
   padding: 5px 30px;
