@@ -34,7 +34,7 @@
           is the <br />best and safest way of doing transactions through
           network.
         </p>
-        <button class="page-header-button">
+        <button @click="redirect" class="page-header-button">
           Github Repository of this application
         </button>
         <logo fill="#ffcea2" height="500px" class="background-logo"></logo>
@@ -114,6 +114,9 @@ export default {
   },
   fetchOnServer: true,
   methods: {
+    redirect() {
+      window.location.href = "https://github.com/peshanghiwa/owl-coin";
+    },
     showError(message) {
       this.alertMessage(message);
     },
