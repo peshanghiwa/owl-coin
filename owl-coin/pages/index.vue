@@ -2,13 +2,11 @@
   <div v-if="ready" class="container">
     <div class="header-container">
       <avatar class="avatar"></avatar>
-      <h3 class="name">Peshang Hiwa</h3>
+      <h3 class="name">{{user.fullName}}</h3>
       <button @click="logOut" class="logout">Log out</button>
     </div>
     <h1 class="mobile-page-header-title">OWL COIN</h1>
-    <h2 class="mobile-page-header-title-description">
-      Cryptocurrency Mining made easy!
-    </h2>
+    <h2 class="mobile-page-header-title-description">Cryptocurrency Mining made easy!</h2>
     <div class="main-container">
       <!-- All the Progress bar codes are inside this component below-->
       <progress-bar
@@ -21,52 +19,46 @@
       ></progress-bar>
       <div class="page-text-container">
         <h1 class="page-header-title">OWL COIN</h1>
-        <h2 class="page-header-title-description">
-          Cryptocurrency Mining made easy!
-        </h2>
+        <h2 class="page-header-title-description">Cryptocurrency Mining made easy!</h2>
         <p class="page-header-content">
           <strong style="font-weight:700;">Owl Coin</strong> is a digital
           Cryptocurrency application where you can mine digital coins every 3
-          minutes. <br />Using this web application you'll get access of doing
+          minutes.
+          <br />Using this web application you'll get access of doing
           cryptocurrency mining and collecting as well as doing
           <br />transactions like sending or recieving money through
-          <strong style="font-weight:700;">blockchain</strong> technology, which
-          is the <br />best and safest way of doing transactions through
+          <strong
+            style="font-weight:700;"
+          >blockchain</strong> technology, which
+          is the
+          <br />best and safest way of doing transactions through
           network.
         </p>
-        <button @click="redirect" class="page-header-button">
-          Github Repository of this application
-        </button>
+        <button @click="redirect" class="page-header-button">Github Repository of this application</button>
         <logo fill="#ffcea2" height="500px" class="background-logo"></logo>
       </div>
     </div>
-    <button class="mobile-page-header-button">
-      Github Repository of this application
-    </button>
+    <button
+      @click="redirect"
+      class="mobile-page-header-button"
+    >Github Repository of this application</button>
     <div class="transaction-section-container">
       <div class="transaction-content-container">
         <h2 class="transaction-section-content smaller">Send Money!</h2>
         <p class="transaction-section-paragraph">
           Owl Coin provides a very secure way of doing Transactions.
-          <br />We let you Send or Recieve money to anyone whose has registred
-          inside the application and has mined it's first block! <br />The
+          <br />We let you Send or Recieve money to anyone who has registred
+          inside the application and has mined it's first block!
+          <br />The
           process of doing transactions will alter the blockchain of both
-          reciever and sender just like claiming money does! <br />so after each
-          transaction you will have to wait for 3 minutes to be able to do
-          another one!
+          receiver and sender, just like claiming money does!
         </p>
         <button
           @click="goToTransaction"
           class="page-header-button start-transaction-button"
-        >
-          Start Transaction
-        </button>
+        >Start Transaction</button>
       </div>
-      <img
-        src="../static/images/transaction.png"
-        class="transaction-section-img"
-        alt
-      />
+      <img src="../static/images/transaction.png" class="transaction-section-img" alt />
     </div>
     <h1 class="stats-header smaller">Statistics</h1>
     <stats class="stats" :stats="chain" :user="user" :key="statsKey"></stats>
@@ -115,7 +107,7 @@ export default {
   fetchOnServer: true,
   methods: {
     redirect() {
-      window.location.href = "https://github.com/peshanghiwa/owl-coin";
+      window.location.replace("https://github.com/peshanghiwa/owl-coin");
     },
     showError(message) {
       this.alertMessage(message);
@@ -178,11 +170,14 @@ export default {
 }
 .avatar {
   float: left;
-  height: 40px;
+  height: 30px;
   margin-right: 10px;
+  margin-top: 5px;
 }
 .name {
-  line-height: 40px;
+  margin-top: 5px;
+  line-height: 30px;
+  font-size: 15px;
   color: #ffcea2;
   float: left;
 }

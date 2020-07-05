@@ -77,12 +77,7 @@ export default {
 }
 .success-container h1 {
   margin: 20px 0;
-}
-
-@media screen and(max-width:600px) {
-  .success-container h1 {
-    font-size: 14px;
-  }
+  font-size: 14px;
 }
 .home-button {
   padding: 5px 30px;

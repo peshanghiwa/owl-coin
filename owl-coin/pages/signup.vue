@@ -50,6 +50,17 @@ export default {
       error: ""
     };
   },
+  async fetch() {
+    this.$fireAuth.onAuthStateChanged(user => {
+      if (user) {
+        this.$router.push("/");
+      } else {
+        $nuxt.$emit("loading", false);
+        this.ready = true;
+      }
+    });
+  },
+  fetchOnServer: false,
   methods: {
     alertMessage(data) {
       this.error = data;
@@ -89,19 +100,17 @@ export default {
         return this.alertMessage(err.message);
       }
     }
-  },
-  mounted() {
-    $nuxt.$emit("loading", false);
-  },
-  async fetch() {
-    this.$fireAuth.onAuthStateChanged(user => {
-      if (user) {
-        this.$router.push("/");
-      } else {
-        this.ready = true;
-      }
-    });
   }
+  // mounted() {
+  //   this.$fireAuth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       this.$router.push("/");
+  //     } else {
+  //       $nuxt.$emit("loading", false);
+  //       this.ready = true;
+  //     }
+  //   });
+  // }
 };
 </script>
 

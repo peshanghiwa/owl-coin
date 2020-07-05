@@ -54,6 +54,34 @@ export default {
       showconfirmation: false
     };
   },
+  async fetch() {
+    this.$fireAuth.onAuthStateChanged(async user => {
+      if (!user) {
+        this.$router.push("/login");
+      } else {
+        $nuxt.$emit("loading", true);
+        try {
+          const idToken = await user.getIdToken(true);
+          this.userToken = idToken;
+          console.log(this.userToken);
+          const currentUser = await this.$fireStore
+            .collection("users")
+            .doc(user.uid)
+            .get();
+          this.user = currentUser.data();
+          this.userId = user.uid;
+          this.chain = currentUser.data().chain;
+          $nuxt.$emit("loading", false);
+
+          this.ready = true;
+        } catch (err) {
+          $nuxt.$emit("loading", false);
+          return this.alertMessage(err.message);
+        }
+      }
+    });
+  },
+  fetchOnServer: false,
   methods: {
     alertError(message) {
       this.alertMessage(message);
@@ -92,38 +120,7 @@ export default {
       this.showSelectAmount = false;
       this.showconfirmation = true;
     }
-  },
-  mounted() {
-    $nuxt.$emit("loading", false);
-  },
-  async fetch() {
-    this.$fireAuth.onAuthStateChanged(async user => {
-      if (!user) {
-        this.$router.push("/login");
-      } else {
-        $nuxt.$emit("loading", true);
-        try {
-          const idToken = await user.getIdToken(true);
-          this.userToken = idToken;
-          console.log(this.userToken);
-          const currentUser = await this.$fireStore
-            .collection("users")
-            .doc(user.uid)
-            .get();
-          this.user = currentUser.data();
-          this.userId = user.uid;
-          this.chain = currentUser.data().chain;
-          $nuxt.$emit("loading", false);
-
-          this.ready = true;
-        } catch (err) {
-          $nuxt.$emit("loading", false);
-          return this.alertMessage(err.message);
-        }
-      }
-    });
-  },
-  fetchOnServer: true
+  }
 };
 </script>
 
