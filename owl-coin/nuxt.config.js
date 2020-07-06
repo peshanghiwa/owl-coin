@@ -79,23 +79,24 @@ export default {
   /*
    ** Firebase module configuration
    */
-  firebase: {
-    config: {
-      apiKey: "AIzaSyBgjS6_BbxaswHhbN5L2oLW6YzQGa7_I00",
-      authDomain: "owl-coin-21e72.firebaseapp.com",
-      databaseURL: "https://owl-coin-21e72.firebaseio.com",
-      projectId: "owl-coin-21e72",
-      storageBucket: "owl-coin-21e72.appspot.com",
-      messagingSenderId: "906249714721",
-      appId: "1:906249714721:web:30b7aac710bc4323ea3760",
-      measurementId: "G-V4MQ6RQL1P"
-    },
-    services: {
-      auth: true,
-      firestore: true,
-      functions: true
-    }
-  },
+  // YOU WILL HAVE TO RECONFIGURE THE BELOW CODE TO YOUR OWN FIREBASE ACCOUNT
+  // firebase: {
+  //   config: {
+  //     apiKey: "",
+  //     authDomain: "",
+  //     databaseURL: "",
+  //     projectId: "",
+  //     storageBucket: "",
+  //     messagingSenderId: "",
+  //     appId: "",
+  //     measurementId: ""
+  //   },
+  //   services: {
+  //     auth: true,
+  //     firestore: true,
+  //     functions: true
+  //   }
+  // },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
