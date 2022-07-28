@@ -1,8 +1,8 @@
-# SUE-Thesis
+# Owl Coin
 
-## Thesis Hub Website for salahaddin university
+## A web application to implement blockchain functinalities and simulate coin miming process.
 
-[Visit Website]([https://ethesis.su.edu.krd/](http://owl-coin.s3-website.ap-south-1.amazonaws.com/)).
+[Visit Website](http://owl-coin.s3-website.ap-south-1.amazonaws.com).
 
 ## Test credits:
 
